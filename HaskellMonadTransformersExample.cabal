@@ -25,7 +25,9 @@ source-repository head
 
 library
   exposed-modules:
-      Lib
+      MockUserRepository
+      UserController
+      UserRepository
   other-modules:
       Paths_HaskellMonadTransformersExample
   hs-source-dirs:

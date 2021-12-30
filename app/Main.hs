@@ -3,7 +3,11 @@ module Main where
 import           Control.Monad.Reader
 import           Data.List            (intercalate)
 import           Data.Maybe
-import           Lib
+import           UserController       (listUserPasswords)
+import           MockUserRepository   (MockUserRepository)
+
+displayPasswords :: [Maybe String] -> String
+displayPasswords = intercalate "\n" $ map (fromMaybe "Password not found")
 
 main :: IO ()
 main = do
@@ -11,4 +15,4 @@ main = do
   let userRepository = MockUserRepository
 
   maybePasswords <- runReaderT (listUserPasswords userNames) userRepository
-  putStrLn $ intercalate "\n" $ map (fromMaybe "Password not found") maybePasswords
+  putStrLn $ displayPasswords maybePasswords

@@ -32,7 +32,7 @@ library
       src
   build-depends:
       base >=4.7 && <5
-    , mtl >2 && <3
+    , transformers >=0.6
   default-language: Haskell2010
 
 executable HaskellMonadTransformersExample-exe
@@ -45,7 +45,7 @@ executable HaskellMonadTransformersExample-exe
   build-depends:
       HaskellMonadTransformersExample
     , base >=4.7 && <5
-    , mtl >2 && <3
+    , transformers >=0.6
   default-language: Haskell2010
 
 test-suite HaskellMonadTransformersExample-test
@@ -59,5 +59,5 @@ test-suite HaskellMonadTransformersExample-test
   build-depends:
       HaskellMonadTransformersExample
     , base >=4.7 && <5
-    , mtl >2 && <3
+    , transformers >=0.6
   default-language: Haskell2010

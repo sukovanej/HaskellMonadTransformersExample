@@ -3,7 +3,14 @@
 # For more information, please see the documentation at:
 #   https://docs.haskellstack.org/en/stable/lock_files
 
-packages: []
+packages:
+- completed:
+    hackage: transformers-0.6.0.2@sha256:c17e154a91c7e81c7b09b5aa0ad4f24876bd89c16710e3a538521cdc6a35a33c,3307
+    pantry-tree:
+      size: 2375
+      sha256: 689b416d2af2d316b42d8f481c30986c300fd135f13186332f7dc8bf3113b4cb
+  original:
+    hackage: transformers-0.6.0.2@sha256:c17e154a91c7e81c7b09b5aa0ad4f24876bd89c16710e3a538521cdc6a35a33c,3307
 snapshots:
 - completed:
     size: 586106

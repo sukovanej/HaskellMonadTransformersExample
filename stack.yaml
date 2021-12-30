@@ -41,7 +41,8 @@ packages:
 #   commit: e7b331f14bcffb8367cd58fbfc8b40ec7642100a
 #
 # extra-deps: []
-
+extra-deps:
+- transformers-0.6.0.2@sha256:c17e154a91c7e81c7b09b5aa0ad4f24876bd89c16710e3a538521cdc6a35a33c,3307
 # Override default flag values for local packages and extra-deps
 # flags: {}
 

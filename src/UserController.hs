@@ -1,15 +1,19 @@
+{-# LANGUAGE RankNTypes #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 
-module UserController ( fetchUserPassword, listUserPasswords) where
+module UserController (fetchUserPassword, listUserPasswords) where
 
-import Control.Monad.Trans.Reader (ReaderT, ask)
-import UserRepository (UserRepository(..), User(..))
+import Control.Monad.Trans.Class (lift)
+import Control.Monad.Trans.Maybe (MaybeT (runMaybeT))
+import Control.Monad.Trans.Reader (ReaderT, ask, asks)
+import UserRepository (User (..), UserRepository (..), UserRepositoryReaderT)
 
-fetchUserPassword :: UserRepository r => String -> ReaderT r (MaybeT IO) String
+fetchUserPassword :: String -> UserRepositoryReaderT IO (Maybe String)
 fetchUserPassword userName = do
   userRepository <- ask
-  user <- getByUserName userRepository userName
-  return . return $ password user
+  lift . runMaybeT $ do
+    user <- getByUserName userRepository userName
+    return $ password user
 
-listUserPasswords :: UserRepository r => [String] -> ReaderT r IO [Maybe String]
+listUserPasswords :: [String] -> UserRepositoryReaderT IO [Maybe String]
 listUserPasswords = mapM fetchUserPassword

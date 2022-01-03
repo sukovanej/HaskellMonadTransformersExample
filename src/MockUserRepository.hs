@@ -1,6 +1,7 @@
 module MockUserRepository (MockUserRepository (MockUserRepository)) where
 
-import UserRepository (UserRepository)
+import Control.Monad.Trans.Maybe (hoistMaybe)
+import UserRepository (User (..), UserRepository (..))
 
 data MockUserRepository = MockUserRepository
 

@@ -1,13 +1,13 @@
 module Main where
 
-import           Control.Monad.Reader
-import           Data.List            (intercalate)
-import           Data.Maybe
-import           UserController       (listUserPasswords)
-import           MockUserRepository   (MockUserRepository)
+import Control.Monad.Trans.Reader (ReaderT (runReaderT))
+import Data.List (intercalate)
+import Data.Maybe (fromMaybe)
+import MockUserRepository (MockUserRepository (..))
+import UserController (listUserPasswords)
 
 displayPasswords :: [Maybe String] -> String
-displayPasswords = intercalate "\n" $ map (fromMaybe "Password not found")
+displayPasswords = intercalate "\n" . map (fromMaybe "Password not found")
 
 main :: IO ()
 main = do

@@ -6,4 +6,4 @@ import UserRepository (User (..), UserRepository (..))
 data MockUserRepository = MockUserRepository
 
 instance UserRepository MockUserRepository where
-  getByUserName _ userName = hoistMaybe . return $ User userName (userName ++ "password") undefined
+  getByUserName _ userName = return . return $ User userName (userName ++ "password") undefined
